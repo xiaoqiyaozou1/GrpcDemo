@@ -1,0 +1,13 @@
+syntax = "proto3"; //表示用的是proto3,之前的版本是2，通过这行代码来区分
+option csharp_namespace = "GrpcClient";
+//定义传递的参数 以下两个参数实体，其实是可以替换互用的，就是传递和返回参数变量
+message Request{
+    string info = 1;
+}
+message Response{
+    string info =1;
+}
+//定义进程之间调用的方法
+service GrpcDemo {
+    rpc GetMessgae(Request) returns(Response){}
+}
